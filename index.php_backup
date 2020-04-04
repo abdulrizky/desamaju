@@ -36,7 +36,17 @@
 </head>
 
 <body>
+  <?php 
+    $link = mysqli_connect('localhost','root','','desamaju');
+    if(!$link){
+      die('ada error'. mysqli_connect_error());
+    }
 
+    $layanan = mysqli_query($link , "SELECT * FROM layanan");
+    $layanan = mysqli_fetch_assoc($layanan);
+
+    
+  ?>
   <!--==========================
   Header
   ============================-->
@@ -869,3 +879,6 @@
   
 </body>
 </html>
+<?php  
+    mysqli_close($link);
+?>
